@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gdas apps</string>
+    <string name="footer">GDAS</string>
 </resources>

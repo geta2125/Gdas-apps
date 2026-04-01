@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Basic -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Malibu Escape Palette -->
+    <color name="pink_soft">#FFD3D6</color>
+    <color name="pink_light">#FFE5E7</color>
+    <color name="cream_peach">#F9DCC0</color>
+    <color name="pink_medium">#FFC6CA</color>
+    <color name="nude_soft">#F9E6E4</color>
+    <color name="pink_strong">#FFB0B5</color>
+
+    <!-- Custom UI -->
+    <color name="text_primary">#A85C63</color>
+    <color name="text_secondary">#8A6B6B</color>
+
 </resources>
