@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- SEARCH -->
+    <item
+        android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom" />
+
+    <!-- SETTINGS -->
+    <item
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="never" />
+
+    <!-- SUB MENU FILTER -->
+    <item
+        android:id="@+id/action_filter"
+        android:title="Filter"
+        app:showAsAction="never">
+
+        <menu>
+            <item
+                android:id="@+id/filter_1"
+                android:title="Option 1"
+                android:checkable="true" />
+
+            <item
+                android:id="@+id/filter_2"
+                android:title="Option 2"
+                android:checkable="true" />
+        </menu>
+
+    </item>
+
+</menu>
