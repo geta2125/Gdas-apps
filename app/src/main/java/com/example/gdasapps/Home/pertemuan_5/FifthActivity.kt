@@ -1,4 +1,4 @@
-package com.example.gdasapps.pertemuan_5
+package com.example.gdasapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,19 +8,23 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gdasapps.R
+import com.example.gdasapps.databinding.ActivityFifthBinding
 import com.google.android.material.card.MaterialCardView
 
 class FifthActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityFifthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_fifth)
 
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         supportActionBar?.apply {
@@ -84,7 +88,16 @@ class FifthActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val btnKembali = findViewById<Button>(R.id.btnKembali)
+        btnKembali.setOnClickListener {
+            finish()
+        }
+        // KEMBALI (lebih clean)
+        binding.btnKembali.setOnClickListener {
+            finish()
+        }
     }
+
 
     // MENU
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

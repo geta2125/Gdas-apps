@@ -1,4 +1,4 @@
-package com.example.gdasapps.pertemuan_4
+package com.example.gdasapps.Home.pertemuan_4
 
 import android.os.Bundle
 import android.util.Log
