@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,8 +20,11 @@ class FifthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_fifth)
+
+        binding = ActivityFifthBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -38,16 +40,14 @@ class FifthActivity : AppCompatActivity() {
         // =========
         // BUTTON
         // =========
-        val btnWebView = findViewById<Button>(R.id.btnWebView)
-        btnWebView.setOnClickListener {
+        binding.btnWebView.setOnClickListener {
 
-            // animasi klik
-            btnWebView.animate()
+            binding.btnWebView.animate()
                 .scaleX(0.95f)
                 .scaleY(0.95f)
                 .setDuration(100)
                 .withEndAction {
-                    btnWebView.animate()
+                    binding.btnWebView.animate()
                         .scaleX(1f)
                         .scaleY(1f)
                         .duration = 100
@@ -60,18 +60,16 @@ class FifthActivity : AppCompatActivity() {
         }
 
         // =========================
-        // CARD MODERN (UI APP)
+        // CARD MODERN
         // =========================
-        val cardWebView = findViewById<MaterialCardView>(R.id.cardWebView)
-        cardWebView.setOnClickListener {
+        binding.cardWebView.setOnClickListener {
 
-            // animasi klik card
-            cardWebView.animate()
+            binding.cardWebView.animate()
                 .scaleX(0.97f)
                 .scaleY(0.97f)
                 .setDuration(100)
                 .withEndAction {
-                    cardWebView.animate()
+                    binding.cardWebView.animate()
                         .scaleX(1f)
                         .scaleY(1f)
                         .duration = 100
@@ -85,19 +83,22 @@ class FifthActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom
+            )
+
             insets
         }
-        val btnKembali = findViewById<Button>(R.id.btnKembali)
-        btnKembali.setOnClickListener {
-            finish()
-        }
-        // KEMBALI (lebih clean)
+
+        // BUTTON KEMBALI
         binding.btnKembali.setOnClickListener {
             finish()
         }
     }
-
 
     // MENU
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

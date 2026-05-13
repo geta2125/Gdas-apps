@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F4F6"
     tools:context=".More.MoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- APP BAR -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8BBD0"
+        android:elevation="4dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F8BBD0"
+            app:title="More"
+            app:titleTextColor="@android:color/white"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- LIST VIEW -->
+    <ListView
+        android:id="@+id/listViewItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="32dp"
-        android:text="Ini Fragment More" />
+        android:padding="12dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
