@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.gdasapps.AuthActivity
+import com.example.gdasapps.Home.pertemuan_10.TenthActivity
 import com.example.gdasapps.Home.pertemuan_2.SecondActivity
 import com.example.gdasapps.Home.pertemuan_3.ThirdActivity
 import com.example.gdasapps.Home.pertemuan_4.FourthActivity
@@ -60,6 +61,9 @@ class HomeFragment : Fragment() {
         }
         binding.btnToNinth.setOnClickListener {
             startActivity(Intent(requireContext(), NinthActivity::class.java))
+        }
+        binding.btnToTenth.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
         binding.btnLogout.setOnClickListener {
