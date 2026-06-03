@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="140dp"
+    android:layout_height="180dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="0dp">
+
+    <ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivGalleryItem"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvGalleryTitle"
+            app:layout_constraintVertical_weight="3" />
+
+        <TextView
+            android:id="@+id/tvGalleryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="Foto Kegiatan Belajar"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/ivGalleryItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+    </ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -9,7 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gdasapps.AuthActivity
+import com.example.gdasapps.Data.model.PhotoApiClient
 import com.example.gdasapps.Home.pertemuan_10.TenthActivity
 import com.example.gdasapps.Home.pertemuan_2.SecondActivity
 import com.example.gdasapps.Home.pertemuan_3.ThirdActivity
@@ -17,8 +20,10 @@ import com.example.gdasapps.Home.pertemuan_4.FourthActivity
 import com.example.gdasapps.Home.pertemuan_5.FifthActivity
 import com.example.gdasapps.Home.pertemuan_7.SevenActivity
 import com.example.gdasapps.Home.pertemuan_9.NinthActivity
+import com.example.gdasapps.Home.photo.PhotoAdapter
 import com.example.gdasapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -65,6 +70,7 @@ class HomeFragment : Fragment() {
         binding.btnToTenth.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
+        loadPhoto()
 
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
@@ -89,6 +95,29 @@ class HomeFragment : Fragment() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+    }
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** 1. Atur agar tampil secara Horizontal */
+                binding.rvGallery.layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+
+                /** 2. Matikan nested scroll bawaan RecyclerView */
+                // Ini wajib agar RecyclerView tidak berebut kendali scroll dengan NestedScrollView utama
+                binding.rvGallery.isNestedScrollingEnabled = false
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
